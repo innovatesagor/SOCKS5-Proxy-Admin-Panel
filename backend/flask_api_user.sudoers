@@ -1,0 +1,6 @@
+# Allow flask_api_user to execute specific commands without password
+flask_api_user ALL=(ALL) NOPASSWD: /usr/sbin/useradd
+flask_api_user ALL=(ALL) NOPASSWD: /usr/sbin/userdel
+flask_api_user ALL=(ALL) NOPASSWD: /usr/bin/passwd
+flask_api_user ALL=(ALL) NOPASSWD: /usr/bin/systemctl status danted
+flask_api_user ALL=(ALL) NOPASSWD: /usr/bin/systemctl is-active danted
