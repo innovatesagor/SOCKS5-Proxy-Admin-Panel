@@ -5,8 +5,7 @@
 set -e
 
 # --- CONFIG ---
-REPO_URL="https://github.com/innovatesagor/SOCKS5-Proxy-Admin-Panel.git"
-INSTALL_DIR="/opt/socks5_admin"
+INSTALL_DIR="$(pwd)"
 ADMIN_USER="admin"
 ADMIN_PASS=$(openssl rand -base64 12)
 JWT_SECRET=$(openssl rand -base64 32)
@@ -15,12 +14,6 @@ JWT_SECRET=$(openssl rand -base64 32)
 echo "[+] Updating system and installing dependencies..."
 sudo apt update
 sudo apt install -y git python3 python3-venv python3-pip nginx dante-server npm
-
-# --- CLONE REPO ---
-echo "[+] Cloning repository..."
-sudo rm -rf "$INSTALL_DIR"
-sudo git clone "$REPO_URL" "$INSTALL_DIR"
-cd "$INSTALL_DIR"
 
 # --- BACKEND SETUP ---
 echo "[+] Creating flask_api_user system user..."
